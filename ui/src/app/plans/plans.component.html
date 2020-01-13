@@ -1,0 +1,37 @@
+<h1> Plans </h1>
+<div class="row" >
+  <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12 mb-4" *ngFor="let plan of plans">
+    <app-plan [plan]="plan" (onUpdate)="update($event)" (onRemove)="remove($event)"></app-plan>
+  </div>
+  <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12">
+    <div class="card">
+      <div class="card-header">
+        Add New Plan
+      </div>
+      <div class="card-body list-group-flush">
+        <form [formGroup]="planForm" (ngSubmit)="addPlan()">
+          <div class="form-group">
+            <label for="name">Plan name</label>
+            <input type="text" class="form-control" formControlName="name" id="name" placeholder="Name ...">
+            <small id="nameHelp" class="form-text text-muted">Name your plan as it means to you (example: Legs workout)</small>
+          </div>
+          <div class="form-group">
+            <label for="default_period">Default Period</label>
+            <input type="number" class="form-control" formControlName="default_period" id="default_period" placeholder="Period ...">
+            <small id="periodHelp" class="form-text text-muted">What is the period in which you repeat this plan? For example every 2 working days</small>
+          </div>
+          <!--<div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+          </div>-->
+          <button type="submit" class="btn btn-outline-secondary" [disabled]="planForm.invalid">Add plan</button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+

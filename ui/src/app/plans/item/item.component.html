@@ -1,0 +1,16 @@
+<div class="item" *ngIf="item">
+  <b>{{item.name}}</b>
+  <small>Period: {{item.period}}</small>
+  <div class="sets">
+    <span class="badge badge-pill badge-dark" *ngFor="let set of item.sets">
+      {{set.number}}
+      <span class="remove" (click)="removeSet(set)" title="remove set">x</span>
+    </span>
+    <span class="badge badge-pill badge-secondary">
+      <form [formGroup]="setFrom">
+    <input type="number" formControlName="number" placeholder="set number">
+    <span class="add" (click)="addSet()">+</span>
+  </form>
+    </span>
+  </div>
+</div>
